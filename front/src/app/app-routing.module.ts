@@ -4,11 +4,16 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { CreatePollComponentComponent } from './create-poll-component/create-poll-component.component';
 import { AnswerPollComponent } from './answer-poll/answer-poll.component';
 import { AdminPollComponent } from './admin-poll/admin-poll.component';
+import { BoredComponentComponent } from './bored-component/bored-component.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponentComponent
+  },
+  { path: 'bored',
+    component: BoredComponentComponent
   },
   {
     path: 'create',
