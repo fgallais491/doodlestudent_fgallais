@@ -1,4 +1,26 @@
-<div>
-    <h2>Activité aléatoire :</h2>
-    <p>{{ boredActivity }}</p>
-  </div>
+  <img src="assets/flat_logo.png" alt="Logo Simba" height="50px" [ngStyle]="{ 'marginBottom': '1rem' }" />
+
+  <div class="bored_select">
+
+  <form (ngSubmit)="onFormSubmit()" #activitiesForm="ngForm">
+    <label for="activityType">Type d'activité :</label>
+    <select id="activityType" name="activityType" [(ngModel)]="selectedActivityType" (ngModelChange)="onFormSubmit()" required>
+      <option value="">-------</option>
+      <option *ngFor="let type of activityTypes" [value]="type">{{type}}</option>
+    </select>
+
+    <br>
+
+    <label for="participants">Nombre de participants :</label>
+    <input type="number" id="participants" name="participants" [(ngModel)]="numberOfParticipants" required>
+
+    <br>
+
+    <button type="submit"> Obtenir une activité </button>
+  </form>
+
+  <p *ngIf="boredActivity">{{ selectedActivityType === '' ? boredActivity + ', ' + activType : boredActivity }}</p>
+
+  <button (click)="navigateToHome()">Retour à la page d'accueil</button>
+  <button (click)="navigateToCreate()">Aller vers la page de création d'activité</button>
+</div>
